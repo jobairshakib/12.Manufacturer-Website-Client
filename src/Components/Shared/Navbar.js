@@ -1,14 +1,30 @@
 import React from 'react';
 import logo from '../../images/logo.png'
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
+import { signOut } from 'firebase/auth';
+import auth from '../../.firebase.init';
+import { useAuthState } from 'react-firebase-hooks/auth';
 
 const Navbar = () => {
+    const [user] = useAuthState(auth);
     const meanuItems = <>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/dashboard'>Dashboard</Link></li>
         <li><Link to='/blog'>Blog</Link></li>
         <li><Link to='/portfolio'>Portfolio</Link></li>
-        <li><Link to='/login'>Login</Link></li>
+        <li>
+            {user ? (
+                <button onClick={() => signOut(auth)}>
+                    Sign Out <FontAwesomeIcon icon={faRightFromBracket} />{" "}
+                </button>
+            ) : (
+                <Link className="rounded-lg" to="/login">
+                    Login
+                </Link>
+            )}
+        </li>
     </>
     return (
         <div class="navbar bg-base-100">
