@@ -10,6 +10,7 @@ import Footer from './Components/Shared/Footer';
 import Register from './Components/Login/Register';
 import Portfolio from './Components/Portfolio/Portfolio';
 import Purchase from './Components/Purchase';
+import AllProducts from './Components/AllProducts';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/home' element={<Home></Home>}></Route>
+        <Route path='/allproducts' element={<AllProducts></AllProducts>}></Route>
         <Route path='/purchase/:id' element={
           <Purchase></Purchase>  
         }></Route>

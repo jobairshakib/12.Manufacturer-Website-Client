@@ -10,16 +10,16 @@ const Purchase = () => {
     const [purchase, setPurchase] = useState([]);
     const [user, loading] = useAuthState(auth);
     const {
-        img,
+        image,
         name,
-        description,
+        shortDescription,
         orderQuantity,
         availableQuantity,
-        perPartsPrice,
+        pricePerUnit,
     } = purchase;
 
     useEffect(() => {
-        const url = `http://localhost:5000/purchase/${id}`;
+        const url = `http://localhost:5000/part/${id}`;
         fetch(url)
             .then((res) => res.json())
             .then((data) => setPurchase(data));
@@ -54,14 +54,14 @@ const Purchase = () => {
                         <div className=" w-3/3 shadow-md rounded-lg lg:w-3/5 bg-base-100">
                             <div className="flex flex-col lg:flex-row items-center py-10 px-5">
 
-                                <img src={img} className="w-60 h-48 lg:h-80 lg:w-80 rounded-md" alt="" />
+                                <img src={image} className="w-60 h-48 lg:h-80 lg:w-80 rounded-md" alt="" />
 
                                 <div className=" card-body">
                                     <h1 className="font-semibold text-3xl ">{name}</h1>
                                     <h1 className="font-semibold">Availabe Quantiny :  <span className="font-bold text-xl"> {availableQuantity} </span> </h1>
                                     <h1 className="font-semibold">Min-Order Quantity : <span className="font-bold text-xl"> {orderQuantity}</span></h1>
-                                    <h1 className="font-semibold">Per Parts Price:     <span className="font-bold text-xl"> ${perPartsPrice}</span></h1>
-                                    <p><span className="font-semibold ">Details:</span>{description}</p>
+                                    <h1 className="font-semibold">Per Parts Price:     <span className="font-bold text-xl"> {pricePerUnit}</span></h1>
+                                    <p><span className="font-semibold ">Details:</span>{shortDescription}</p>
                                 </div>
 
                             </div>

@@ -23,7 +23,7 @@ const Product = ({product}) => {
         <>
             <div className="card card-hover card-compact bg-base-100 shadow-xl">
                 <figure>
-                    <img width={300} className="rounded-lg" src={image} alt="Shoes" />
+                    <img width={300} className="rounded-lg" src={image} alt="" />
                 </figure>
                 <div className="card-body ">
                     <h2 className="card-title">{name}</h2>
@@ -40,7 +40,7 @@ const Product = ({product}) => {
                     </h2>
                     <h2 className="text-1xl">
                         {" "}
-                        <span className="font-bold">Per Parts Price</span> $
+                        <span className="font-bold">Per Parts Price: </span>
                         {pricePerUnit ? pricePerUnit : products}
                     </h2>
                     <div className="card-actions justify-end">

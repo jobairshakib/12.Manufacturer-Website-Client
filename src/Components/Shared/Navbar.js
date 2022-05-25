@@ -11,6 +11,7 @@ const Navbar = () => {
     const [user] = useAuthState(auth);
     const meanuItems = <>
         <li><Link to='/'>Home</Link></li>
+        <li><Link to='/allproducts'>Products</Link></li>
         <li><Link to='/dashboard'>Dashboard</Link></li>
         <li><Link to='/blog'>Blog</Link></li>
         <li><Link to='/portfolio'>Portfolio</Link></li>
