@@ -1,5 +1,6 @@
 [
     {
+        "_id": 1,
         "name": "Mother Board",
         "image": "https://i.ibb.co/Ws99N7y/mobo.jpg",
         "shortDescription": "The motherboard is the backbone that ties the computer's components together at one spot and allows them to talk to each other. Without it, none of the computer pieces, such as the CPU, GPU, or hard drive, could interact. Total motherboard functionality is necessary for a computer to work well.",
@@ -8,6 +9,7 @@
         "pricePerUnit": "BDT. 22,490"
     },
     {
+        "_id": 2,
         "name": "Processor",
         "image": "https://i.ibb.co/kQJ5TMB/processoe.jpg",
         "shortDescription": "A processor (CPU) is the logic circuitry that responds to and processes the basic instructions that drive a computer. The CPU is seen as the main and most crucial integrated circuitry (IC) chip in a computer, as it is responsible for interpreting most of computers commands.",
@@ -16,6 +18,7 @@
         "pricePerUnit": "BDT. 22,490"
     },
     {
+        "_id": 3,
         "name": "Ram",
         "image": "https://i.ibb.co/yn6HdQ5/ram.png",
         "shortDescription": "Random-access memory is a form of computer memory that can be read and changed in any order, typically used to store working data and machine code.",
@@ -24,6 +27,7 @@
         "pricePerUnit": "BDT. 22,490"
     },
     {
+        "_id": 4,
         "name": "SSD",
         "image": "https://i.ibb.co/BgyRTwn/ssd.jpg",
         "shortDescription": "SSDs or HDDs work alongside your system's memory and processor to access and use data. Solid state drives use different technology than traditional hard drives that allow SSDs to access data faster, improving your computer's performance. This data includes things like your operating system, games, images, or music.",
@@ -32,6 +36,7 @@
         "pricePerUnit": "BDT. 22,490"
     },
     {
+        "_id": 5,
         "name": "Power Supply",
         "image": "https://i.ibb.co/fkzCVgP/psu.jpg",
         "shortDescription": "A power supply is an electronic circuit that converts the voltage of an alternating current (AC) into a direct current (DC) voltage. It is basically consisting of the following elements: transformer, rectifier, filter and regulator circuits.",
@@ -40,6 +45,7 @@
         "Price per Unit": "BDT. 22,490"
     },
     {
+        "_id": 6,
         "name": "Mouse",
         "image": "https://i.ibb.co/B3K2dDJ/mouse.jpg",
         "shortDescription": "The mouse is a small, movable device that lets you control a range of things on a computer. Most types of mouse have two buttons, and some will have a wheel in between the buttons. Most types of mouse connect to the computer with a cable, and use the computer's power to work. Some types of mouse are wireless.",
@@ -48,6 +54,7 @@
         "pricePerUnit": "BDT. 22,490"
     },
     {
+        "_id": 7,
         "name": "Keyboard",
         "image": "https://i.ibb.co/LZN7H0K/keyboard.jpg",
         "shortDescription": "A computer keyboard is a peripheral input device modeled after the typewriter keyboard which uses an arrangement of buttons or keys to act as mechanical levers or electronic switches.",
