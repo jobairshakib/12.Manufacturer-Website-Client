@@ -18,6 +18,7 @@ function App() {
         <Route path='/home' element={<Home></Home>}></Route>
         <Route path='/dashboard' element={<Dashboard></Dashboard>}></Route>
         <Route path='/blog' element={<Blog></Blog>}></Route>
+        <Route path='/portfolio' element={<Blog></Blog>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/*' element={<Error404></Error404>}></Route>
       </Routes>

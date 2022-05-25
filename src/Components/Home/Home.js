@@ -1,4 +1,5 @@
 import React from 'react';
+import Loading from '../Loading/Loading';
 import Summary from '../Summary/Summary';
 import Banner from './Banner';
 
