@@ -6,6 +6,7 @@ import Blog from './Components/Blog/Blog';
 import Dashboard from './Components/Dashboard/Dashboard';
 import Login from './Components/Login/Login';
 import Error404 from './Components/Error404';
+import Footer from './Components/Shared/Footer';
 
 
 function App() {
@@ -19,7 +20,8 @@ function App() {
         <Route path='/blog' element={<Blog></Blog>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/*' element={<Error404></Error404>}></Route>
-    </Routes>
+      </Routes>
+      <Footer></Footer>
     </div>
   );
 }
