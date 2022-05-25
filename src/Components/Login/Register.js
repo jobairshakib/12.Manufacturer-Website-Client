@@ -1,57 +1,86 @@
-import React, { Fragment, useEffect } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useForm } from "react-hook-form";
+import { async } from "@firebase/util";
+import React, { Fragment } from "react";
 import {
-    useSignInWithEmailAndPassword,
-    useSignInWithGoogle,
+    useCreateUserWithEmailAndPassword,
+    useSendEmailVerification,
+    useUpdateProfile,
 } from "react-firebase-hooks/auth";
-import Loading from "../Loading/Loading";
+import { useForm } from "react-hook-form";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import auth from "../../.firebase.init";
-const Login = () => {
+import Loading from "../Loading/Loading";
+
+const Register = () => {
     const {
         register,
         formState: { errors },
         handleSubmit,
     } = useForm();
 
-    const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
-    const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+    const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
-    const location = useLocation();
+    const [createUserWithEmailAndPassword, user, loading, error] =
+        useCreateUserWithEmailAndPassword(auth);
+
+    const [sendEmailVerification, sending, vError] =
+        useSendEmailVerification(auth);
+
     const navigate = useNavigate();
 
-    let from = location.state?.from?.pathname || "/";
-    useEffect(() => {
-        if (user || gUser) {
-            navigate(from, { replace: true });
-        }
-    }, [user, gUser, from, navigate]);
+    let signUpError;
 
-    let signInError;
+    if (user) {
+        navigate("/");
+    }
 
-    if (loading || gLoading) {
+    if (loading) {
         return <Loading />;
     }
 
-    if (error || gError) {
-        signInError = (
-            <p className="text-red-600">{error?.message || gError?.message}</p>
-        );
+    if (error) {
+        signUpError = <p className="text-red-600">{error?.message}</p>;
     }
 
-    const onSubmit = (data) => {
-        signInWithEmailAndPassword(data.email, data.password);
+    const onSubmit = async (data) => {
+        await createUserWithEmailAndPassword(data.email, data.password);
+        await updateProfile({ displayName: data.name });
+        await sendEmailVerification();
     };
 
     return (
-        <Fragment>
+        <>
             <section>
                 <div className="flex h-screen justify-center items-center">
                     <div className="card w-96 bg-base-100 shadow-xl">
                         <div className="card-body">
-                            <h2 className="text-3xl text-center font-bold">Login</h2>
+                            <h2 className="text-3xl text-center font-bold">Sign Up</h2>
 
                             <form onSubmit={handleSubmit(onSubmit)}>
+                                <div className="form-control w-full max-w-xs border-0">
+                                    <label className="label">
+                                        <span className="label-text">Username</span>
+                                    </label>
+                                    <input
+                                        type="text"
+                                        placeholder="Username"
+                                        className="input input-bordered w-full max-w-xs"
+                                        {...register("name", {
+                                            required: {
+                                                value: true,
+                                                message: "Username is Required",
+                                            },
+                                        })}
+                                    />
+
+                                    <label className="label">
+                                        {errors.name?.type === "required" && (
+                                            <span className="label-text-alt text-red-500 ">
+                                                {errors.name.message}
+                                            </span>
+                                        )}
+                                    </label>
+                                </div>
+
                                 <div className="form-control w-full max-w-xs border-0">
                                     <label className="label">
                                         <span className="label-text">Your Email</span>
@@ -75,12 +104,12 @@ const Login = () => {
                                     <label className="label">
                                         {errors.email?.type === "required" && (
                                             <span className="label-text-alt text-red-500 ">
-                                                {errors.email.message}
+                                                {errors?.email?.message}
                                             </span>
                                         )}
                                         {errors.email?.type === "pattern" && (
                                             <span className="label-text-alt text-red-500 ">
-                                                {errors.email.message}
+                                                {errors?.email?.message}
                                             </span>
                                         )}
                                     </label>
@@ -109,48 +138,42 @@ const Login = () => {
                                     <label className="label">
                                         {errors.password?.type === "required" && (
                                             <span className="label-text-alt text-red-500 ">
-                                                {errors.password.message}
+                                                {errors?.password?.message}
                                             </span>
                                         )}
                                         {errors.password?.type === "minLength" && (
                                             <span className="label-text-alt text-red-500 ">
-                                                {errors.password.message}
+                                                {errors?.password?.message}
                                             </span>
                                         )}
                                     </label>
                                 </div>
 
-                                {signInError}
+                                {signUpError}
 
                                 <input
                                     className="btn btn-primary w-full"
                                     type="submit"
-                                    value="Login"
+                                    value="SIGN UP"
                                 />
                             </form>
 
                             <p>
-                                <Link
-                                    to="/register"
-                                    className="text-primary ml-0 md:ml-32 lg:ml-32"
-                                >
-                                    Create an account
-                                </Link>
+                                <small>
+                                    <Link
+                                        to="/login"
+                                        className="text-primary ml-0 md:ml-40 lg:ml-40"
+                                    >
+                                        Already have an account{" "}
+                                    </Link>
+                                </small>
                             </p>
-
-                            <div className="divider">OR</div>
-                            <button
-                                onClick={() => signInWithGoogle()}
-                                className="btn btn-primary btn-outline"
-                            >
-                                CONTINUE WITH GOOGLE
-                            </button>
                         </div>
                     </div>
                 </div>
             </section>
-        </Fragment>
+        </>
     );
 };
 
-export default Login;
+export default Register;
