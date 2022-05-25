@@ -8,6 +8,8 @@ import Login from './Components/Login/Login';
 import Error404 from './Components/Error404';
 import Footer from './Components/Shared/Footer';
 import Register from './Components/Login/Register';
+import Portfolio from './Components/Portfolio/Portfolio';
+import Purchase from './Components/Purchase';
 
 
 function App() {
@@ -17,9 +19,12 @@ function App() {
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/home' element={<Home></Home>}></Route>
+        <Route path='/purchase/:id' element={
+          <Purchase></Purchase>  
+        }></Route>
         <Route path='/dashboard' element={<Dashboard></Dashboard>}></Route>
         <Route path='/blog' element={<Blog></Blog>}></Route>
-        <Route path='/portfolio' element={<Blog></Blog>}></Route>
+        <Route path='/portfolio' element={<Portfolio></Portfolio>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
         <Route path='/*' element={<Error404></Error404>}></Route>

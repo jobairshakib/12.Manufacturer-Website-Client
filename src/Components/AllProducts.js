@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 import Product from './Product';
 
-const Products = () => {
+const AllProducts = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
@@ -16,11 +16,11 @@ const Products = () => {
                 <div className="grid gap-8 pt-8 mx-16 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                     {products.map((product) => (
                         <Product key={products._id} product={product} />
-                    )).reverse().slice(0, 6)}
+                    ))}
                 </div>
             </section>
         </>
     );
 };
 
-export default Products;
+export default AllProducts;
