@@ -1,11 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
-import Header from './Components/Shared/Header/Header';
+import Navbar from './Components/Shared/Navbar';
+
 
 function App() {
   return (
     <div>
-      <Header></Header>
+      <Navbar></Navbar>
     </div>
   );
 }
