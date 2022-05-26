@@ -14,6 +14,7 @@ import AllProducts from './Components/AllProducts';
 import RequireAuth from './Components/RequireAuth';
 import { ToastContainer } from 'react-toastify';
 import MyOrder from './Components/Dashboard/MyOrder';
+import AddAReview from './Components/AddAReview';
 
 
 function App() {
@@ -33,7 +34,10 @@ function App() {
           <RequireAuth>
             <Dashboard></Dashboard>
           </RequireAuth>
-        }></Route>
+        }>
+          <Route index element={<MyOrder></MyOrder>}></Route>
+          <Route path='review' element={<AddAReview></AddAReview>}></Route>
+        </Route>
         <Route path='/dashboard/myorder' element={<MyOrder></MyOrder>}></Route>
         <Route path='/blog' element={<Blog></Blog>}></Route>
         <Route path='/portfolio' element={<Portfolio></Portfolio>}></Route>

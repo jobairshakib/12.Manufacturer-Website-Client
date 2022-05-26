@@ -8,7 +8,7 @@ import Loading from "./Loading/Loading";
 
 const Purchase = () => {
     const { id } = useParams();
-    const [user, loading, error] = useAuthState(auth);
+    const [user] = useAuthState(auth);
     const {
         data: parts,
         isLoading,
@@ -25,7 +25,7 @@ const Purchase = () => {
         event.preventDefault();
         const purchaseQuantity = event.target.minquantity.value;
         console.log(purchaseQuantity);
-        let remaining = availableQuantity - purchaseQuantity;
+        let remaining = parseInt(availableQuantity) - purchaseQuantity;
         const purchase = {
             partsId: _id,
             parts: name,
@@ -65,9 +65,8 @@ fetch("http://localhost:5000/purchase", {
     .then((res) => res.json())
     .then((data) => {
         refetch();
-        console.log(data);
-        toast("purchased");
     });
+    toast("purchased");
   };
 return (
     <div>
