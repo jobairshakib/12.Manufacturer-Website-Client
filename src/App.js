@@ -21,6 +21,7 @@ import RequireAdmin from './Components/RequireAdmin';
 import Products from './Components/Dashboard/Products';
 import AddProduct from './Components/Dashboard/AddProduct';
 import Orders from './Components/Dashboard/Orders';
+import MyProfile from './Components/Dashboard/MyProfile';
 
 
 function App() {
@@ -44,6 +45,7 @@ function App() {
           <Route index element={<></>}></Route>
           <Route path='myorder' element={<MyOrder></MyOrder>}></Route>
           <Route path='review' element={<AddAReview></AddAReview>}></Route>
+          <Route path='myprofile' element={<MyProfile></MyProfile>}></Route>
           <Route path='users' element={<RequireAdmin><Users></Users></RequireAdmin>}></Route>
           <Route path='products' element={<RequireAdmin><Products></Products></RequireAdmin>}></Route>
           <Route path='addproduct' element={<RequireAdmin><AddProduct></AddProduct></RequireAdmin>}></Route>

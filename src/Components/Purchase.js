@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import auth from "../.firebase.init";
@@ -7,27 +8,37 @@ import Loading from "./Loading/Loading";
 
 const Purchase = () => {
     const { id } = useParams();
-    const [purchase, setPurchase] = useState([]);
     const [btnDisable, setBtnDisable] = useState(false);
-    const [user, loading] = useAuthState(auth);
+    const [user] = useAuthState(auth);
 
-    const { _id, name, image, pricePerUnit, shortDescription, availableQuantity, orderQuantity } = purchase;
 
-    useEffect(() => {
-        const url = `http://localhost:5000/part/${id}`;
-            fetch(url)
-                .then((res) => res.json())
-                .then((data) => setPurchase(data));
-    }, [id]);
+    const {
+        data: parts,
+        isLoading,
+        refetch,
+    } = useQuery(["part", id], () =>
+        fetch(`http://localhost:5000/part/${id}`).then((res) =>
+            res.json()
+        )
+        );
 
-    if (loading) {
+    if (isLoading) {
         return <Loading />;
     }
+    const { _id, name, image, pricePerUnit, shortDescription, availableQuantity, orderQuantity } = parts;
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(event);
         const purchaseQuantity = event.target.minquantity.value;
+        let remaining = parseInt(availableQuantity) - purchaseQuantity;
+        let newParts = {
+            name,
+            image,
+            pricePerUnit,
+            availableQuantity: remaining,
+            shortDescription,
+            orderQuantity,
+        };
         const partsOrder = {
             partsId: _id,
             parts: name,
@@ -37,6 +48,15 @@ const Purchase = () => {
             customerName: user.displayName,
             phone: event.target.phone.value,
         };
+        fetch(`http://localhost:5000/part/${id}`, {
+            method: "PUT",
+            body: JSON.stringify(newParts),
+            headers: {
+                "Content-type": "application/json",
+            },
+        })
+            .then((res) => res.json())
+            .then((data) => console.log(data));
         fetch("http://localhost:5000/purchase", {
             method: "POST",
             headers: {
@@ -48,6 +68,7 @@ const Purchase = () => {
             .then((Response) => Response.json())
             .then((data) => {
                 toast.success("Successfully Placed Order.");
+                refetch();
                 event.target.reset();
             });
     };

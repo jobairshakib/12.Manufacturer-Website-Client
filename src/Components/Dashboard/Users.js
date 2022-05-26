@@ -16,7 +16,6 @@ const Users = () => {
 
     return (
         <div>
-            <h2>Users : {users.length}</h2>
             <div class="overflow-x-auto">
                 <table class="table table-zebra w-full">
                     <thead>
