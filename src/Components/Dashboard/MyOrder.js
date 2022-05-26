@@ -1,4 +1,4 @@
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faMoneyBill1Wave, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { useEffect, useState } from 'react';
@@ -56,7 +56,7 @@ const MyOrder = () => {
                                     <td>{o.parts}</td>
                                     <td>{o.purchaseQuantity}</td>
                                     <td>{o.pricePerUnit}</td>
-                                    <td>Blue</td>
+                                    <td><button className='btn btn-success gap-2'>Payment<FontAwesomeIcon icon={faMoneyBill1Wave}/></button></td>
                                     <td><button onClick={() => handleDelete(o._id)} className='btn gap-2 btn-error'>Delete <FontAwesomeIcon icon={faTrash} /></button></td>
                                 </tr>
                                 )
