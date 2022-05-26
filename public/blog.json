@@ -16,16 +16,6 @@
   },
   {
     "_id" : 4,
-    "question" : "Why you do not set the state directly in React. For example, if you have const [products, setProducts] = useState([]). Why you do not set products = [...] instead, you use the setProducts",
-    "answer" : "A good product description should focus on the product's features and benefits. Obviously, the features are a bit more clear cut. The benefits will require a bit more creativity and understanding of your target audience. However, both features and benefits allow for creative writing "
-  },
-  {
-    "_id" : 5,
-    "question" : " You have an array of products. Each product has a name, price, description, etc. How will you implement a search to find products by name?",
-    "answer" : "A product description is the marketing copy that explains what a product is and why it's worth purchasing. The purpose of a product description is to supply customers with important information about the features and benefits of the product so they're compelled to buy"
-  },
-  {
-    "_id" : 6,
     "question" : " What is a unit test? Why should write unit tests?",
     "answer" : "One of the benefits of unit tests is that they isolate a function, class or method and only test that piece of code. Higher quality individual components create overall system resiliency. Thus, the result is reliable code. Unit tests also change the nature of the debugging process] "
   }
