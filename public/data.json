@@ -40,9 +40,9 @@
         "name": "Power Supply",
         "image": "https://i.ibb.co/fkzCVgP/psu.jpg",
         "shortDescription": "A power supply is an electronic circuit that converts the voltage of an alternating current (AC) into a direct current (DC) voltage. It is basically consisting of the following elements: transformer, rectifier, filter and regulator circuits.",
-        "Order Quantity": 20,
-        "Available Quantity": 20,
-        "Price per Unit": "BDT. 22,490"
+        "orderQuantity": 20,
+        "availableQuantity": 20,
+        "pricePerUnit": "BDT. 22,490"
     },
     {
         "_id": 6,

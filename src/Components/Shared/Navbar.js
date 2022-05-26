@@ -12,7 +12,9 @@ const Navbar = () => {
     const meanuItems = <>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/allproducts'>Products</Link></li>
-        <li><Link to='/dashboard'>Dashboard</Link></li>
+        {
+            user && <li><Link to='/dashboard'>Dashboard</Link></li>
+        }
         <li><Link to='/blog'>Blog</Link></li>
         <li><Link to='/portfolio'>Portfolio</Link></li>
         <li>

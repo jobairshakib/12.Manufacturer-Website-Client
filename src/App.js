@@ -11,6 +11,9 @@ import Register from './Components/Login/Register';
 import Portfolio from './Components/Portfolio/Portfolio';
 import Purchase from './Components/Purchase';
 import AllProducts from './Components/AllProducts';
+import RequireAuth from './Components/RequireAuth';
+import { ToastContainer } from 'react-toastify';
+import MyOrder from './Components/Dashboard/MyOrder';
 
 
 function App() {
@@ -22,9 +25,16 @@ function App() {
         <Route path='/home' element={<Home></Home>}></Route>
         <Route path='/allproducts' element={<AllProducts></AllProducts>}></Route>
         <Route path='/purchase/:id' element={
-          <Purchase></Purchase>  
+          <RequireAuth>
+            <Purchase></Purchase>  
+          </RequireAuth>
         }></Route>
-        <Route path='/dashboard' element={<Dashboard></Dashboard>}></Route>
+        <Route path='/dashboard' element={
+          <RequireAuth>
+            <Dashboard></Dashboard>
+          </RequireAuth>
+        }></Route>
+        <Route path='/dashboard/myorder' element={<MyOrder></MyOrder>}></Route>
         <Route path='/blog' element={<Blog></Blog>}></Route>
         <Route path='/portfolio' element={<Portfolio></Portfolio>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
@@ -32,6 +42,7 @@ function App() {
         <Route path='/*' element={<Error404></Error404>}></Route>
       </Routes>
       <Footer></Footer>
+      <ToastContainer></ToastContainer>
     </div>
   );
 }
