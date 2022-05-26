@@ -94,11 +94,11 @@ const Purchase = () => {
                                         <span className="font-bold text-xl"> {orderQuantity}</span>
                                     </h1>
                                     <h1 className="font-semibold">
-                                        Per Parts Price:{" "}
-                                        <span className="font-bold text-xl">{pricePerUnit}</span>
+                                        Unit Price:{" "}
+                                        <span className="font-bold text-xl">{pricePerUnit} ৳</span>
                                     </h1>
                                     <p>
-                                        <span className="font-semibold ">Details:</span>
+                                        <span className="font-semibold ">Details: <br/></span>
                                         {shortDescription}
                                     </p>
                                 </div>
@@ -148,7 +148,7 @@ const Purchase = () => {
                                         onChange={handleInput}
                                         min={orderQuantity}
                                         placeholder="Quantity"
-                                        className="input w-2/6 input-bordered placeholder:text-[15px] py-2 my-3"
+                                        className="input input-bordered placeholder:text-[15px] py-2 my-3"
                                         required
                                     />{" "}
                                 </div>

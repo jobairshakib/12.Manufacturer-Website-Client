@@ -30,18 +30,18 @@ const Product = ({product}) => {
                     <p>{shortDescription?.slice(0, 150)}...</p>
                     <h2 className="text-1xl">
                         {" "}
-                        <span className="font-bold">Min-Order Quantity</span>{" "}
+                        <span className="font-bold">Min-Order Quantity:</span>{" "}
                         {orderQuantity}
                     </h2>
                     <h2 className="text-1xl">
                         {" "}
-                        <span className="font-bold">Available Quantity</span>{" "}
+                        <span className="font-bold">Available Quantity:</span>{" "}
                         {availableQuantity}
                     </h2>
                     <h2 className="text-1xl">
                         {" "}
-                        <span className="font-bold">Per Parts Price: </span>
-                        {pricePerUnit ? pricePerUnit : products}
+                        <span className="font-bold">Unit Price: </span>
+                        {pricePerUnit ? pricePerUnit : products} ৳
                     </h2>
                     <div className="card-actions justify-end">
                         <button
