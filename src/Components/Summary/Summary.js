@@ -8,38 +8,38 @@ const Summary = () => {
         <>
             <h2 className='text-3xl font-bold text-primary-focus text-center'>Business Summary</h2>
         <div className='px-8 d-lg-grid grid-cols-4'>
-            <div class="m-4  card card-compact border-none">
+            <div className="m-4  card card-compact border-none">
                 
-                <div class="card-body gap-0 text-center">
+                <div className="card-body gap-0 text-center">
                     <p className='text-4xl text-primary-focus'><FontAwesomeIcon icon={faPeopleCarry} /></p>
-                    <h2 class="card-title justify-center">Customers</h2>
+                    <h2 className="card-title justify-center">Customers</h2>
                     <p className='text-2xl font-bold'><CountUp end={100} />+</p>
                     
                 </div>
             </div>
-            <div class="m-4 card card-compact border-none">
+            <div className="m-4 card card-compact border-none">
                 
-                <div class="card-body gap-0 text-center">
+                <div className="card-body gap-0 text-center">
                     <p className='text-4xl text-primary-focus'><FontAwesomeIcon icon={faSackDollar} /></p>
-                    <h2 class="card-title justify-center">Annual revenue</h2>
+                    <h2 className="card-title justify-center">Annual revenue</h2>
                     <p className='text-2xl font-bold'><CountUp end={120} />M+</p>
                     
                 </div>
             </div>
-            <div class="m-4 card card-compact border-none">
+            <div className="m-4 card card-compact border-none">
                 
-                <div class="card-body gap-0 text-center">
+                <div className="card-body gap-0 text-center">
                     <p className='text-4xl text-primary-focus'><FontAwesomeIcon icon={faMessage} /></p>
-                    <h2 class="card-title justify-center">Reviews</h2>
+                    <h2 className="card-title justify-center">Reviews</h2>
                     <p className='text-2xl font-bold'><CountUp end={33} />K+</p>
                     
                 </div>
             </div>
-            <div class="m-4 card card-compact border-none">
+            <div className="m-4 card card-compact border-none">
                 
-                <div class="card-body text-center">
+                <div className="card-body text-center">
                     <p className='text-4xl text-primary-focus'><FontAwesomeIcon icon={faToolbox} /></p>
-                    <h2 class="card-title justify-center">Parts</h2>
+                    <h2 className="card-title justify-center">Parts</h2>
                     <p className='text-2xl font-bold'><CountUp end={50} />+</p>
                     
                 </div>

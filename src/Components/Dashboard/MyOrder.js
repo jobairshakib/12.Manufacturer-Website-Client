@@ -12,7 +12,12 @@ const MyOrder = () => {
 
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:5000/purchase?customer=${user.email}`)
+            fetch(`http://localhost:5000/purchase?customer=${user.email}`, {
+                method: 'GET',
+                headers:{
+                    'authorization' : `Bearer ${localStorage.getItem('accessToken')}`
+                }
+            })
                 .then(res => res.json())
                 .then(data => setOrders(data))
         }
@@ -38,8 +43,8 @@ const MyOrder = () => {
 
     return (
         <div>
-            <div class="overflow-x-auto">
-                <table class="table table-zebra w-full">
+            <div className="overflow-x-auto">
+                <table className="table table-zebra w-full">
                     {/* <!-- head --> */}
                     <thead>
                         <tr>

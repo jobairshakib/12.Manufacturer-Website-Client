@@ -18,36 +18,36 @@ const Portfolio = () => {
         <>
             <section>
                 {/* About me Information */}
-                <div class="hero py-32  px-16">
-                    <div class="hero-content flex-col lg:flex-row-reverse">
-                        <div class="avatar">
-                            <div class=" w-full lg:w-72 rounded-full ring ring-primary ring-offset-base-200 ring-offset-2">
+                <div className="hero py-32  px-16">
+                    <div className="hero-content flex-col lg:flex-row-reverse">
+                        <div className="avatar">
+                            <div className=" w-full lg:w-72 rounded-full ring ring-primary ring-offset-base-200 ring-offset-2">
                                 <img src={profile} alt="" />
                             </div>
                         </div>
                         <div>
-                            <h1 class="text-3xl md:text-3xl lg:text-5xl text-secondary font-serif font-bold">
+                            <h1 className="text-3xl md:text-3xl lg:text-5xl text-secondary font-serif font-bold">
                                 Hi, I'm <span className="text-primary-focus">Jobair Shakib</span>
                             </h1>
-                            <p class="py-6 w-1/2">
+                            <p className="py-6 w-1/2">
                                 I'm a Front End Developer.
                             </p>
-                            <button class="btn btn-primary">Hire me</button>
+                            <button className="btn btn-primary">Hire me</button>
                         </div>
                     </div>
                 </div>
 
                 {/* Technical Skills & Professional Skills */}
                 <div className="flex gap-x-16 items-center px-16 pb-20 flex-col lg:flex-row">
-                    <div class="card flex-1 text-center bg-base-100 shadow-xl">
-                        <div class="card-body">
-                            <h2 class="text-2xl font-bold uppercase">Technical Skills</h2>
+                    <div className="card flex-1 text-center bg-base-100 shadow-xl">
+                        <div className="card-body">
+                            <h2 className="text-2xl font-bold uppercase">Technical Skills</h2>
                             <div className="flex justify-between">
                                 <h1>HTML</h1>
                                 <h4>95%</h4>
                             </div>
                             <progress
-                                class="progress progress-success bg-base-200 w-full"
+                                className="progress progress-success bg-base-200 w-full"
                                 value="98"
                                 max="100"
                             ></progress>
@@ -56,7 +56,7 @@ const Portfolio = () => {
                                 <h4>90%</h4>
                             </div>
                             <progress
-                                class="progress  progress-success bg-base-200 w-full"
+                                className="progress  progress-success bg-base-200 w-full"
                                 value="90"
                                 max="100"
                             ></progress>
@@ -65,7 +65,7 @@ const Portfolio = () => {
                                 <h4>90%</h4>
                             </div>
                             <progress
-                                class="progress progress-success bg-base-200 w-full"
+                                className="progress progress-success bg-base-200 w-full"
                                 value="85"
                                 max="100"
                             ></progress>
@@ -75,7 +75,7 @@ const Portfolio = () => {
                                 <h4>75%</h4>
                             </div>
                             <progress
-                                class="progress progress-success bg-base-200 w-full"
+                                className="progress progress-success bg-base-200 w-full"
                                 value="78"
                                 max="100"
                             ></progress>
@@ -84,7 +84,7 @@ const Portfolio = () => {
                                 <h4>70%</h4>
                             </div>
                             <progress
-                                class="progress progress-success bg-base-200 w-full"
+                                className="progress progress-success bg-base-200 w-full"
                                 value="75"
                                 max="100"
                             ></progress>
@@ -93,16 +93,16 @@ const Portfolio = () => {
                                 <h4>60%</h4>
                             </div>
                             <progress
-                                class="progress progress-success bg-base-200 w-full"
+                                className="progress progress-success bg-base-200 w-full"
                                 value="70"
                                 max="100"
                             ></progress>
                         </div>
                     </div>
 
-                    <div class="card flex-1 mt-10 lg:mt-0 bg-base-100 text-center shadow-xl">
-                        <div class="card-body">
-                            <h2 class="text-2xl font-bold uppercase">Professional Skills</h2>
+                    <div className="card flex-1 mt-10 lg:mt-0 bg-base-100 text-center shadow-xl">
+                        <div className="card-body">
+                            <h2 className="text-2xl font-bold uppercase">Professional Skills</h2>
 
                             <div className=" grid grid-cols-2 gap-10 justify-items-center ">
                                 <div>
@@ -179,9 +179,9 @@ const Portfolio = () => {
 
                 {/* Some of my Project & Educations */}
                 <div className="flex px-4 lg:px-20 gap-8 pb-10 flex-col lg:flex-row">
-                    <div class="card flex-1 flex justify-center items-center bg-base-100 shadow-xl">
-                        <div class="card-body">
-                            <h2 class=" text-xl uppercase font-bold">Some Of My Project</h2>
+                    <div className="card flex-1 flex justify-center items-center bg-base-100 shadow-xl">
+                        <div className="card-body">
+                            <h2 className=" text-xl uppercase font-bold">Some Of My Project</h2>
                             <h3 className="text-sm font-semibold">Project-1</h3>
                             <p className="font-semibold">
                                 <small>Name: Mobile Point</small>
@@ -241,9 +241,9 @@ const Portfolio = () => {
                         </div>
                     </div>
 
-                    <div class="card flex-1 flex justify-center items-center bg-base-100 shadow-xl">
-                        <div class="card-body">
-                            <h2 class="text-xl uppercase font-bold">Educations</h2>
+                    <div className="card flex-1 flex justify-center items-center bg-base-100 shadow-xl">
+                        <div className="card-body">
+                            <h2 className="text-xl uppercase font-bold">Educations</h2>
                             <div className="shadow-md py-4 px-3 rounded-md">
                                 <h1 className="font-semibold">B.Sc in CSE</h1>
                                 <p>
@@ -267,15 +267,15 @@ const Portfolio = () => {
                 </div>
 
                 {/* Contact me */}
-                <div class=" flex items-center px-16 py-28 flex-col lg:flex-row">
-                    <div class=" flex-1 ">
+                <div className=" flex items-center px-16 py-28 flex-col lg:flex-row">
+                    <div className=" flex-1 ">
                         <img className="rounded-md lg:h-1/2 lg:w-1/2" src={profile} alt="" />
                     </div>
                     <div>
-                        <h1 class="text-2xl lg:text-5xl text-primary-focus mt-10 lg:mt-0 font-bold">
+                        <h1 className="text-2xl lg:text-5xl text-primary-focus mt-10 lg:mt-0 font-bold">
                             Mohammad Jobair Shakib
                         </h1>
-                        <h2 class="pb-3 font-bold text-lg">Front End Developer</h2>
+                        <h2 className="pb-3 font-bold text-lg">Front End Developer</h2>
                         <p className="text-sm font-bold">
                             {" "}
                             <FontAwesomeIcon

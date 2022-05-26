@@ -2,12 +2,14 @@ import { async } from "@firebase/util";
 import React, { Fragment } from "react";
 import {
     useCreateUserWithEmailAndPassword,
+    useSignInWithGoogle,
     useSendEmailVerification,
     useUpdateProfile,
 } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import auth from "../../.firebase.init";
+import useToken from "../Hooks/useToken";
 import Loading from "../Loading/Loading";
 
 const Register = () => {
@@ -21,23 +23,25 @@ const Register = () => {
 
     const [createUserWithEmailAndPassword, user, loading, error] =
         useCreateUserWithEmailAndPassword(auth);
+    const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
 
     const [sendEmailVerification, sending, vError] =
         useSendEmailVerification(auth);
-
+    
+    const [token] = useToken(user || gUser);
     const navigate = useNavigate();
 
     let signUpError;
 
-    if (user) {
+    if (token) {
         navigate("/");
     }
 
-    if (loading) {
+    if (loading || gLoading) {
         return <Loading />;
     }
 
-    if (error) {
+    if (error || gError) {
         signUpError = <p className="text-red-600">{error?.message}</p>;
     }
 
@@ -168,6 +172,13 @@ const Register = () => {
                                     </Link>
                                 </small>
                             </p>
+                            <div className="divider">OR</div>
+                            <button
+                                onClick={() => signInWithGoogle()}
+                                className="btn btn-primary btn-outline"
+                            >
+                                CONTINUE WITH GOOGLE
+                            </button>
                         </div>
                     </div>
                 </div>
