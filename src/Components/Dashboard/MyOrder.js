@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { toast, ToastContainer } from 'react-toastify';
 import auth from '../../.firebase.init';
 
 const MyOrder = () => {
@@ -19,14 +20,23 @@ const MyOrder = () => {
 
     const handleDelete = id => {
         const confirm = window.confirm('Are you sure?');
+        
         if (confirm) {
-            const url = `http://localhost:5000/purchase`
+            const url = `http://localhost:5000/purchase/${id}`;
+            fetch(url, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    const remainingItem = orders.filter(order => order._id !== id);
+                    setOrders(remainingItem)
+                })
+            toast("Item Deleted Successfully");
         }
     }
 
     return (
         <div>
-            This is my Order : {orders.length}
             <div class="overflow-x-auto">
                 <table class="table table-zebra w-full">
                     {/* <!-- head --> */}
@@ -47,12 +57,13 @@ const MyOrder = () => {
                                     <td>{o.purchaseQuantity}</td>
                                     <td>{o.pricePerUnit}</td>
                                     <td>Blue</td>
-                                    <td><button onClick={() => handleDelete(o._id)} className='btn gap-2 btn-primary'>Delete <FontAwesomeIcon icon={faTrash} /></button></td>
+                                    <td><button onClick={() => handleDelete(o._id)} className='btn gap-2 btn-error'>Delete <FontAwesomeIcon icon={faTrash} /></button></td>
                                 </tr>
                                 )
                         }
                     </tbody>
                 </table>
+                <ToastContainer />
             </div>
         </div>
     );
