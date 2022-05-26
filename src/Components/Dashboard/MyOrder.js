@@ -1,25 +1,38 @@
 import { faMoneyBill1Wave, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { signOut } from 'firebase/auth';
 import React from 'react';
 import { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../.firebase.init';
 
 const MyOrder = () => {
     const [orders, setOrders] = useState([]);
     const [user] = useAuthState(auth); 
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (user) {
             fetch(`http://localhost:5000/purchase?customer=${user.email}`, {
                 method: 'GET',
-                headers:{
-                    'authorization' : `Bearer ${localStorage.getItem('accessToken')}`
+                headers: {
+                    'authorization': `Bearer ${localStorage.getItem('accessToken')}`
                 }
             })
-                .then(res => res.json())
-                .then(data => setOrders(data))
+                .then(res => {
+                    console.log('res', res);
+                    if (res.status === 401 || res.status === 403) {
+                        signOut(auth);
+                        localStorage.removeItem('accessToken');
+                        navigate('/');
+                    }
+                    return res.json()
+                })
+                .then(data => {
+                    setOrders(data)
+                });
         }
     }, [user]);
 
