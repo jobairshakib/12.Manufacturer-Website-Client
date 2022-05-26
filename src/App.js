@@ -13,6 +13,7 @@ import Purchase from './Components/Purchase';
 import AllProducts from './Components/AllProducts';
 import RequireAuth from './Components/RequireAuth';
 import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import MyOrder from './Components/Dashboard/MyOrder';
 import AddAReview from './Components/AddAReview';
 

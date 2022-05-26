@@ -31,7 +31,7 @@ const MyOrder = () => {
                     const remainingItem = orders.filter(order => order._id !== id);
                     setOrders(remainingItem)
                 })
-            toast("Item Deleted Successfully");
+            toast.error("Item Deleted Successfully");
         }
     }
 
@@ -63,7 +63,7 @@ const MyOrder = () => {
                         }
                     </tbody>
                 </table>
-                <ToastContainer />
+                
             </div>
         </div>
     );
