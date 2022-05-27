@@ -16,7 +16,7 @@ const AddAReview = () => {
         const rating = event.target.rating.value;
         const review = event.target.review.value;
 
-        const url = `http://localhost:5000/addReview`;
+        const url = `https://pc-mania.herokuapp.com/addReview`;
         fetch(url, {
             method: 'POST',
             body: JSON.stringify({

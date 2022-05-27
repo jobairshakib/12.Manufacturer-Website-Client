@@ -18,7 +18,7 @@ const CheckoutForm = ({purchase}) => {
     
     useEffect(() => {
         
-        fetch("http://localhost:5000/create-payment-intent", {
+        fetch("https://pc-mania.herokuapp.com/create-payment-intent", {
             method: "POST",
             headers: {
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`,
@@ -77,7 +77,7 @@ const CheckoutForm = ({purchase}) => {
                 transactionId: paymentIntent.id
             }
 
-            fetch(`http://localhost:5000/purchase/${_id}`, {
+            fetch(`https://pc-mania.herokuapp.com/purchase/${_id}`, {
                 method: 'PATCH',
                 headers: {
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`,

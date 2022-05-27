@@ -11,7 +11,7 @@ const AddProduct = () => {
         const pricePerUnit = event.target.pricePerUnit.value;
         const shortDescription = event.target.shortDescription.value;
 
-        const url = `http://localhost:5000/addPart`;
+        const url = `https://pc-mania.herokuapp.com/addPart`;
         fetch(url, {
             method: 'POST',
             body: JSON.stringify({

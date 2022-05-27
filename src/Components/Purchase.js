@@ -17,7 +17,7 @@ const Purchase = () => {
         isLoading,
         refetch,
     } = useQuery(["part", id], () =>
-        fetch(`http://localhost:5000/part/${id}`).then((res) =>
+        fetch(`https://pc-mania.herokuapp.com/part/${id}`).then((res) =>
             res.json()
         )
         );
@@ -50,7 +50,7 @@ const Purchase = () => {
             customerName: user.displayName,
             phone: event.target.phone.value,
         };
-        fetch(`http://localhost:5000/part/${id}`, {
+        fetch(`https://pc-mania.herokuapp.com/part/${id}`, {
             method: "PUT",
             body: JSON.stringify(newParts),
             headers: {
@@ -59,7 +59,7 @@ const Purchase = () => {
         })
             .then((res) => res.json())
             .then((data) => console.log(data));
-        fetch("http://localhost:5000/purchase", {
+        fetch("https://pc-mania.herokuapp.com/purchase", {
             method: "POST",
             headers: {
                 "content-type": "application/json",

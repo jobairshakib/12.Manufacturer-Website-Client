@@ -9,7 +9,7 @@ import Loading from '../Loading/Loading';
 const ManageProducts = () => {
 
     const [products, setProducts] = useProduct();
-    const { data: parts, isLoading, refetch } = useQuery('users', () => fetch(`http://localhost:5000/part`).then(res => res.json()));
+    const { data: parts, isLoading, refetch } = useQuery('users', () => fetch(`https://pc-mania.herokuapp.com/part`).then(res => res.json()));
     if (isLoading) {
         return <Loading></Loading>
     }
@@ -18,7 +18,7 @@ const ManageProducts = () => {
         const confirm = window.confirm('Are you want to delete this item?');
 
         if (confirm) {
-            const url = `http://localhost:5000/part/${id}`;
+            const url = `https://pc-mania.herokuapp.com/part/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })

@@ -15,7 +15,7 @@ const MyOrder = () => {
 
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:5000/purchase?customer=${user.email}`, {
+            fetch(`https://pc-mania.herokuapp.com/purchase?customer=${user.email}`, {
                 method: 'GET',
                 headers: {
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -41,7 +41,7 @@ const MyOrder = () => {
         const confirm = window.confirm('Are you sure?');
         
         if (confirm) {
-            const url = `http://localhost:5000/purchase/${id}`;
+            const url = `https://pc-mania.herokuapp.com/purchase/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
