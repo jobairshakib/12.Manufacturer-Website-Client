@@ -1,14 +1,8 @@
-import React, { Fragment, useEffect, useState } from "react";
+import useProduct from "./Hooks/useProduct";
 import Product from './Product';
 
 const AllProducts = () => {
-    const [products, setProducts] = useState([]);
-
-    useEffect(() => {
-        fetch(`http://localhost:5000/part`)
-            .then((res) => res.json())
-            .then((data) => setProducts(data));
-    }, []);
+    const [products, setProducts] = useProduct([]);
     return (
         <>
             <section className="p-7">
