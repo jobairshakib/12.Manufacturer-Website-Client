@@ -5,7 +5,7 @@ const Reviews = () => {
     const [reviews, setReviews] = useState([]);
 
     useEffect(() => {
-        fetch("reviews.json")
+        fetch("http://localhost:5000/review")
             .then((res) => res.json())
             .then((data) => setReviews(data));
     }, []);
@@ -18,7 +18,7 @@ const Reviews = () => {
                 <div className="grid gap-8 pt-8 mx-4 grid-cols-1 lg:grid-cols-2">
                     {reviews.map((review) => (
                         <Review key={review._id} reviews={review} />
-                    ))}
+                    )).reverse()}
                 </div>
             </section>
         </>

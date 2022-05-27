@@ -15,13 +15,13 @@ import RequireAuth from './Components/RequireAuth';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import MyOrder from './Components/Dashboard/MyOrder';
-import AddAReview from './Components/AddAReview';
 import Users from './Components/Dashboard/Users';
 import RequireAdmin from './Components/RequireAdmin';
 import AddProduct from './Components/Dashboard/AddProduct';
 import MyProfile from './Components/Dashboard/MyProfile';
 import ManageProducts from './Components/Dashboard/ManageProducts';
 import ManageOrders from './Components/Dashboard/ManageOrders';
+import AddAReview from './Components/Dashboard/AddAReview';
 
 
 function App() {
