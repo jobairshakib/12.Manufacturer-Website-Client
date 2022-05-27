@@ -1,7 +1,13 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
+import auth from '../.firebase.init';
+import useAdmin from './Hooks/useAdmin';
 
-const Product = ({product}) => {
+const Product = ({ product }) => {
+    const [user] = useAuthState(auth);
+    const [admin, adminLoading] = useAdmin(user);
+
         const {
         _id,
         image,
@@ -44,12 +50,13 @@ const Product = ({product}) => {
                         {pricePerUnit ? pricePerUnit : products} ৳
                     </h2>
                     <div className="card-actions justify-end">
-                        <button
+                        {!admin &&
+                            <button
                             onClick={() => handleNavigate(_id)}
                             className="btn btn-primary"
                         >
                             Purchase Now
-                        </button>
+                        </button>}
                     </div>
                 </div>
             </div>
