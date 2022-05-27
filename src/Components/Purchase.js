@@ -31,6 +31,7 @@ const Purchase = () => {
         event.preventDefault();
         const purchaseQuantity = event.target.minquantity.value;
         let remaining = parseInt(availableQuantity) - purchaseQuantity;
+        let totalPrice = parseInt(pricePerUnit) * purchaseQuantity;
         let newParts = {
             name,
             image,
@@ -44,6 +45,7 @@ const Purchase = () => {
             parts: name,
             purchaseQuantity,
             pricePerUnit,
+            totalPrice,
             customer: user.email,
             customerName: user.displayName,
             phone: event.target.phone.value,
@@ -75,7 +77,6 @@ const Purchase = () => {
 
     const handleInput = (e) => {
         let quantity = parseInt(e.target.value);
-        // let totalPrice = parseInt(quantity * pricePerUnit)
         let partsQuantity = parseInt(availableQuantity);
         if (quantity > partsQuantity || quantity < orderQuantity) {
             setBtnDisable(true);

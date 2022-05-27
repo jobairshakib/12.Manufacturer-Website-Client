@@ -4,7 +4,7 @@ import { signOut } from 'firebase/auth';
 import React from 'react';
 import { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../.firebase.init';
 
@@ -76,8 +76,17 @@ const MyOrder = () => {
                                     <td>{o.parts}</td>
                                     <td>{o.purchaseQuantity}</td>
                                     <td>{o.pricePerUnit} ৳</td>
-                                    <td>{(o.pricePerUnit) * (o.purchaseQuantity)} ৳</td>
-                                    <td><button className='btn btn-xs btn-success gap-2'>Payment<FontAwesomeIcon icon={faMoneyBill1Wave}/></button></td>
+                                    <td>{o.totalPrice} ৳</td>
+                                    <td>
+                                        {
+                                        !o.paid &&
+                                        <Link to={`/dashboard/payment/${o._id}`}><button className='btn btn-xs btn-success gap-2'>Pay<FontAwesomeIcon icon={faMoneyBill1Wave} /></button></Link>
+                                        }
+                                        {
+                                            o.paid && 
+                                        <button className='btn btn-xs btn-success gap-2'>Paid<FontAwesomeIcon icon={faMoneyBill1Wave} /></button>
+                                        }
+                                    </td>
                                     <td><button onClick={() => handleDelete(o._id)} className='btn gap-2 btn-xs btn-error'>Delete <FontAwesomeIcon icon={faTrash} /></button></td>
                                 </tr>
                                 )
