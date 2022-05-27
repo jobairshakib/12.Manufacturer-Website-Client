@@ -84,7 +84,7 @@ const MyOrder = () => {
                                         }
                                         {
                                             o.paid && 
-                                        <button className='btn btn-xs btn-success gap-2'>Paid<FontAwesomeIcon icon={faMoneyBill1Wave} /></button>
+                                        <button className='btn btn-xs  btn-success gap-2'>Paid</button>
                                         }
                                     </td>
                                     <td><button onClick={() => handleDelete(o._id)} className='btn gap-2 btn-xs btn-error'>Delete <FontAwesomeIcon icon={faTrash} /></button></td>
