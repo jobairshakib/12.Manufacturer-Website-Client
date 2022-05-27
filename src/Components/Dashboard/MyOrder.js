@@ -72,7 +72,7 @@ const MyOrder = () => {
                     <tbody>
                         {
                             orders.map(o =>
-                                <tr>
+                                <tr key={o._id}>
                                     <td>{o.parts}</td>
                                     <td>{o.purchaseQuantity}</td>
                                     <td>{o.pricePerUnit} ৳</td>
@@ -84,7 +84,10 @@ const MyOrder = () => {
                                         }
                                         {
                                             o.paid && 
-                                        <button className='btn btn-xs  btn-success gap-2'>Paid</button>
+                                            <div>
+                                                    <p className='btn btn-xs  btn-success gap-2'>Paid</p>
+
+                                        </div>
                                         }
                                     </td>
                                     <td><button onClick={() => handleDelete(o._id)} className='btn gap-2 btn-xs btn-error'>Delete <FontAwesomeIcon icon={faTrash} /></button></td>

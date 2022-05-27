@@ -1,5 +1,5 @@
 import { async } from "@firebase/util";
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import {
     useCreateUserWithEmailAndPassword,
     useSignInWithGoogle,
@@ -7,7 +7,7 @@ import {
     useUpdateProfile,
 } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../.firebase.init";
 import useToken from "../Hooks/useToken";
 import Loading from "../Loading/Loading";
@@ -29,13 +29,21 @@ const Register = () => {
         useSendEmailVerification(auth);
     
     const [token] = useToken(user || gUser);
+    const location = useLocation();
     const navigate = useNavigate();
 
-    let signUpError;
 
-    if (token) {
-        navigate("/");
-    }
+    let from = location.state?.from?.pathname || "/";
+    useEffect(() => {
+        if (token && from === '/login') {
+            navigate('/');
+        }
+        else if (token) {
+            navigate(from, { replace: true });
+        }
+    }, [token, from, navigate]);
+
+    let signUpError;
 
     if (loading || gLoading) {
         return <Loading />;

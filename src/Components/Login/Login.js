@@ -25,7 +25,10 @@ const Login = () => {
 
     let from = location.state?.from?.pathname || "/";
     useEffect(() => {
-        if (token) {
+        if (token && from === '/login') {
+            navigate('/');
+        }
+        else if (token ) {
             navigate(from, { replace: true });
         }
     }, [token, from, navigate]);
