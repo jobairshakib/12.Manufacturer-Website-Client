@@ -1,13 +1,29 @@
 import { faMoneyBill1Wave } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
-const CheckoutForm = () => {
+const CheckoutForm = ({purchase}) => {
 
     const stripe = useStripe();
     const elements = useElements();
     const [cardError, setCardError] = useState('');
+    const [clientSecret, setClientSecret] = useState("");
+    const { totalPrice } = purchase;
+    
+    useEffect(() => {
+        
+        fetch("http://localhost:5000/create-payment-intent", {
+            method: "POST",
+            headers: {
+                'authorization': `Bearer ${localStorage.getItem('accessToken')}`,
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({totalPrice}),
+        })
+            .then((res) => res.json())
+            .then((data) => setClientSecret(data.clientSecret));
+    }, []);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
