@@ -25,7 +25,7 @@ const Contact = () => {
                             </div>
                             <div className="form-control border-0">
                                 <label className="label">
-                                    <span className="label-text font-bold">Email</span>
+                                    <span className="label-text font-bold">Message</span>
                                 </label>
                                 <textarea type="text" placeholder="Message" className="w-full h-32 input input-bordered" />
                             </div>

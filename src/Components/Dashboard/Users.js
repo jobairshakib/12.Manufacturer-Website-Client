@@ -21,7 +21,7 @@ const Users = () => {
                     <thead>
                         <tr>
                             <th className='text-primary-focus text-base'>Name</th>
-                            <th className='text-primary-focus text-base'>ROle</th>
+                            <th className='text-primary-focus text-base'>Role</th>
                             <th className='text-primary-focus text-base'>Remove User</th>
                         </tr>
                     </thead>
