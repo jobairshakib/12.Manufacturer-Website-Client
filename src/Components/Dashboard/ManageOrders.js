@@ -1,4 +1,4 @@
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faTrash, faCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import usePurchases from '../Hooks/usePurchases';
@@ -31,7 +31,24 @@ const ManageOrders = () => {
                                         <td>{purchase?.customer}</td>
                                         <td>{purchase?.purchaseQuantity}</td>
                                         <td>{totalPrice}</td>
-                                        <td><button className='btn btn-xs btn-outline'>Unpaid</button></td>
+                                        <td>{
+                                            !purchase.paid &&
+                                            <div>
+                                                <p className='btn btn-xs  btn-dark gap-2'>Unpaid</p>
+
+                                            </div>
+                                        }
+                                            {
+                                                purchase.paid &&
+                                                <div>
+                                                        <p className='btn btn-xs  btn-success text-white gap-2'>Paid<FontAwesomeIcon icon={faCheck} /></p>
+
+                                                </div>
+                                            }
+                                            
+                                            
+                                            {/* <button className='btn btn-xs btn-outline'>Unpaid</button> */}
+                                        </td>
                                     </tr>
                                 );
                             })

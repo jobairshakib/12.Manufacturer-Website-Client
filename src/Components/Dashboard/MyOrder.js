@@ -1,4 +1,4 @@
-import { faMoneyBill1Wave, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faCheck, faMoneyCheck, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { signOut } from 'firebase/auth';
 import React from 'react';
@@ -80,17 +80,17 @@ const MyOrder = () => {
                                     <td>
                                         {
                                         !o.paid &&
-                                        <Link to={`/dashboard/payment/${o._id}`}><button className='btn btn-xs btn-success gap-2'>Pay<FontAwesomeIcon icon={faMoneyBill1Wave} /></button></Link>
+                                            <Link to={`/dashboard/payment/${o._id}`}><button className='btn btn-xs btn-warning text-white gap-2'>Pay<FontAwesomeIcon icon={faMoneyCheck} /></button></Link>
                                         }
                                         {
                                             o.paid && 
                                             <div>
-                                                    <p className='btn btn-xs  btn-success gap-2'>Paid</p>
+                                                    <p className='btn btn-xs  btn-success text-white gap-2'>Paid<FontAwesomeIcon icon={faCheck} /></p>
 
                                         </div>
                                         }
                                     </td>
-                                    <td><button onClick={() => handleDelete(o._id)} className='btn gap-2 btn-xs btn-error'>Delete <FontAwesomeIcon icon={faTrash} /></button></td>
+                                    <td><button onClick={() => handleDelete(o._id)} className='btn gap-2 btn-xs btn-error text-white'>Delete <FontAwesomeIcon icon={faTrash} /></button></td>
                                 </tr>
                                 )
                         }

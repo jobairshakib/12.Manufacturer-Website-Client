@@ -35,7 +35,7 @@ const Register = () => {
 
     let from = location.state?.from?.pathname || "/";
     useEffect(() => {
-        if (token && from === '/login') {
+        if (token && from === '/register') {
             navigate('/');
         }
         else if (token) {

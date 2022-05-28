@@ -1,3 +1,5 @@
+import { faPeopleArrows, faPerson, faTrash, faTrashAlt, faTrashArrowUp, faTrashCan, faUnlockKeyhole, faUserLock } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { toast } from 'react-toastify';
 
@@ -26,8 +28,8 @@ const UserRow = ({ user,refetch }) => {
     return (
         <tr>
             <td>{email}</td>
-            <td>{role !== 'admin' && <button onClick={makeAdmin} className='btn btn-xs btn-success'>Make Admin</button>}</td>
-            <td><button className='btn btn-xs btn-error'>Remove User</button></td>
+            <td>{role !== 'admin' && <button onClick={makeAdmin} className='btn btn-xs btn-success text-white gap-2'>Make Admin<FontAwesomeIcon icon={faUserLock} /></button>}</td>
+            <td><button className='btn btn-xs btn-error gap-2 text-white'>Remove<FontAwesomeIcon icon={faTrash} /></button></td>
         </tr>
     );
 };
