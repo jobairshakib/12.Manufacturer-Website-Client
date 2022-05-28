@@ -56,6 +56,10 @@ const MyOrder = () => {
 
     return (
         <div>
+            <h1 className="text-center text-2xl lg:text-3xl font-koulen font-semibold my-4 ">
+                {" "}
+                My <span className="text-primary-focus">Orders</span>
+            </h1>
             <div className="overflow-x-auto">
                 <table className="table table-zebra w-full">
                     {/* <!-- head --> */}

@@ -34,6 +34,10 @@ const ManageProducts = () => {
 
     return (
         <div>
+            <h1 className="text-center text-2xl lg:text-3xl font-koulen font-semibold my-4 ">
+                {" "}
+                Manage <span className="text-primary-focus">Products</span>
+            </h1>
             <div class="overflow-x-auto">
                 <table class="table table-zebra w-full">
                     <thead>
@@ -52,7 +56,7 @@ const ManageProducts = () => {
                                         <td>{part?.name}</td>
                                         <td>{part?.availableQuantity}</td>
                                         <td>{part?.pricePerUnit}</td>
-                                        <td><button onClick={() => handleDelete(part._id)} className='btn btn-xs btn-error'>Delete <FontAwesomeIcon icon={faTrash} /></button></td>
+                                        <td><button onClick={() => handleDelete(part._id)} className='btn btn-xs btn-error text-white gap-2'>Delete <FontAwesomeIcon icon={faTrash} /></button></td>
                                     </tr>
                                 );
                             })

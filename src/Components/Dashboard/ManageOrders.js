@@ -8,6 +8,10 @@ const ManageOrders = () => {
     const [purchases, setPurchases] = usePurchases([]);
     return (
         <div>
+            <h1 className="text-center text-2xl lg:text-3xl font-koulen font-semibold my-4 ">
+                {" "}
+                All <span className="text-primary-focus">Orders</span>
+            </h1>
             <div class="overflow-x-auto">
                 <table class="table table-zebra w-full">
                     <thead>

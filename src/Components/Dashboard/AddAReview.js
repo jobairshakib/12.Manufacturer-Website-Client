@@ -36,11 +36,14 @@ const AddAReview = () => {
 
     return (
         <>
-            <>
+            <h1 className="text-center text-2xl lg:text-3xl font-koulen font-semibold my-4 ">
+                {" "}
+                Add <span className="text-primary-focus">Review</span>
+            </h1>
                 <form onSubmit={handleProduct}>
                     <div className="card  w-full mx-auto max-w-lg shadow-2xl">
                         <div className="card-body">
-                            <h2 className='font-bold text-center text-primary-focus'>Add a Review</h2>
+                            
                             
                             <div className="form-control border-0">
                                 <label className="label">
@@ -84,7 +87,7 @@ const AddAReview = () => {
                         </div>
                     </div>
                 </form>
-            </>
+            
         </>
     );
 };

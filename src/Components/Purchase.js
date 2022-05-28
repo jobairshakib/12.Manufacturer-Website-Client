@@ -75,6 +75,8 @@ const Purchase = () => {
             });
     };
 
+    
+
     const handleInput = (e) => {
         let quantity = parseInt(e.target.value);
         let partsQuantity = parseInt(availableQuantity);
@@ -182,7 +184,11 @@ const Purchase = () => {
                                 >
                                     Place Order
                                 </button>
+                                
                             </form>
+                            {
+                                btnDisable && <p className='text-red-500 mt-2   '>Please enter valid quantity</p>
+                            }
                         </div>
                     </div>
                 </div>
